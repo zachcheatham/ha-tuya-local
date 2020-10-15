@@ -1,0 +1,9 @@
+{
+    "domain": "tuya_local",
+    "name": "Tuya Local Control",
+    "documentation": "https://github.com/zachcheatham/ha-tuya-local",
+    "dependencies": [],
+    "codeowners": ["@zachcheatham"],
+    "requirements": ["aiotuyalan==0.0.2"],
+    "config_flow": false
+}
