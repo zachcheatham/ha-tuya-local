@@ -4,7 +4,7 @@ import asyncio
 import homeassistant.helpers.config_validation as cv
 
 from typing import Optional, Tuple
-from .aiotuyalan import TuyaLight, TuyaDevice
+from aiotuyalan import TuyaLight, TuyaDevice
 from homeassistant.components.light import (ATTR_BRIGHTNESS, ATTR_HS_COLOR,
     ATTR_COLOR_TEMP, PLATFORM_SCHEMA, SUPPORT_BRIGHTNESS, SUPPORT_COLOR_TEMP,
     SUPPORT_COLOR, LightEntity
