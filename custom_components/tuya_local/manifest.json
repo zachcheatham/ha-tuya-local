@@ -4,6 +4,6 @@
     "documentation": "https://github.com/zachcheatham/ha-tuya-local",
     "dependencies": [],
     "codeowners": ["@zachcheatham"],
-    "requirements": ["aiotuyalan==0.0.2"],
+    "requirements": ["aiotuyalan==0.0.3"],
     "config_flow": false
 }
