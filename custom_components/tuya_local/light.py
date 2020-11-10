@@ -19,6 +19,7 @@ CONF_GW_ID = 'gw_id'
 CONF_DEVICE_ID = 'device_id'
 CONF_LOCAL_KEY = 'local_key'
 CONF_VERSION = 'version'
+ATTR_COLOR_MODE = "color_mode"
 
 KELVIN_MIN=2700
 KELVIN_MAX=6500
@@ -174,20 +175,18 @@ class TuyaLightEntity(LightEntity):
                 return None
             else:
                 return (float(hue), TuyaDevice.scale_value(saturation, 0.0, 255.0, 0.0, 100.0))
-        if self._light.get_mode() == TuyaLight.DPS_MODE_WHITE:
-            temp = self._light.get_color_temp()
-            if temp is None:
-                return None
-            else:
-                return color_temperature_to_hs(
-                        TuyaDevice.scale_value(temp, 0.0, 255.0, KELVIN_MIN, KELVIN_MAX))
+        else:
+            return None
 
     @property
     def color_temp(self) -> int:
-        return int(TuyaDevice.scale_value(
-            TuyaDevice.invert_value(self._light.get_color_temp(), 0.0, 255.0),
-            0.0, 255.0, MIREDS_MIN, MIREDS_MAX
-        ))
+        if self._light.get_mode() == TuyaLight.DPS_MODE_WHITE:
+            return int(TuyaDevice.scale_value(
+                TuyaDevice.invert_value(self._light.get_color_temp(), 0.0, 255.0),
+                0.0, 255.0, MIREDS_MIN, MIREDS_MAX
+            ))
+        else:
+            return None
 
     @property
     def min_mireds(self) -> int:
