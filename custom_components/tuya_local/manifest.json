@@ -6,5 +6,6 @@
     "codeowners": ["@zachcheatham"],
     "requirements": ["aiotuyalan==0.0.3"],
     "version": "1.0.0",
-    "config_flow": false
+    "config_flow": false,
+    "iot_class": "local_push"
 }
